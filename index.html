@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-time Weather Dashboard</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>Real-time Weather Dashboard</h1>
+      <p class="subtitle">Fetches live weather using async JavaScript + REST APIs.</p>
+    </header>
+
+    <section class="card search-card" aria-label="Weather search">
+      <form id="searchForm" class="search-form">
+        <label class="sr-only" for="cityInput">City</label>
+        <input
+          id="cityInput"
+          name="city"
+          type="text"
+          placeholder="Enter city name (e.g., London)"
+          autocomplete="off"
+          required
+        />
+        <button id="searchBtn" type="submit">Get Weather</button>
+      </form>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <div id="error" class="error" role="alert" aria-live="assertive"></div>
+    </section>
+
+    <section class="card results-card" aria-label="Weather results">
+      <div class="results-header">
+        <div>
+          <h2 id="placeName" class="place-name">—</h2>
+          <div id="lastUpdated" class="last-updated"></div>
+        </div>
+        <div id="iconWrap" class="icon-wrap" aria-hidden="true"></div>
+      </div>
+
+      <div class="grid">
+        <div class="metric">
+          <div class="metric-label">Temperature</div>
+          <div id="temp" class="metric-value">—</div>
+          <div id="tempFeels" class="metric-sub"></div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">Humidity</div>
+          <div id="humidity" class="metric-value">—</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-label">Wind Speed</div>
+          <div id="wind" class="metric-value">—</div>
+          <div id="windDir" class="metric-sub"></div>
+        </div>
+
+        <div class="metric metric-wide">
+          <div class="metric-label">Conditions</div>
+          <div id="conditions" class="metric-value">—</div>
+          <div id="more" class="metric-sub"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-note">
+      Tip: first load may take a moment. If you see an error, check your connection.
+    </section>
+  </main>
+
+  <script src="./script.js" type="module"></script>
+</body>
+</html>
+
